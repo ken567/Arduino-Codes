@@ -11,7 +11,12 @@ SoftwareSerial Serial1(10,11);
 #ifndef HAVE_HWSERIAL2
 SoftwareSerial Serial2(12,13);
 #endif
-
+/*
+ * Library used 
+ * WiFiEsp: https://github.com/bportaluri/WiFiEsp
+ * Time: https://github.com/PaulStoffregen/Time
+ * 
+ */
 String date1,date2,time1,hData,tData,ipAdd,macAdd,latData,longData;  
 char ssid[] = "Dulay55";            
 char pass[] = "confidential";        
@@ -56,11 +61,9 @@ void setup(){
 }
 void loop(){
   getTime();
-  //getTempHumid();
   Serial.println(date1);
   Serial.println(time1);
-  //getCoordinates();
-  //displayLCD();
+  
 }
 void getTime(){
  sendNTPpacket(timeServer);
@@ -129,7 +132,6 @@ void sendNTPpacket(char *ntpSrv){
   Udp.write(packetBuffer, NTP_PACKET_SIZE);
   Udp.endPacket();
 }
-
 
 
 

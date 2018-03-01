@@ -1,3 +1,4 @@
+#include <LiquidCrystal.h>
 #include <Time.h>
 #include <TimeLib.h>
 #include <WiFiEsp.h>
